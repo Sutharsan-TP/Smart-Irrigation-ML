@@ -1,0 +1,38 @@
+{
+  "_comment": "DEMO / SYNTHETIC configuration used only for software testing. The calibration and threshold numbers below are INVENTED placeholders, not measurements. Never use them on the real prototype.",
+
+  "soil_raw_dry": 600,
+  "soil_raw_wet": 280,
+  "moisture_threshold_pct": 35.0,
+
+  "soil_feature": "moisture_pct",
+  "adc_max": 1023,
+  "valid_ranges": {
+    "temperature_c": [0, 50],
+    "humidity_pct": [0, 100]
+  },
+
+  "random_seed": 42,
+  "split": {
+    "strategy": "auto",
+    "test_size": 0.25,
+    "min_sessions_for_group_split": 5
+  },
+  "cv_folds": 5,
+  "selection_metric": "f2",
+
+  "models": {
+    "logistic_regression": {"C": 1.0},
+    "decision_tree": {"max_depth": 3, "min_samples_leaf": 5},
+    "random_forest": {"n_estimators": 10, "max_depth": 3, "min_samples_leaf": 5}
+  },
+
+  "paths": {
+    "data_dir": "data/demo",
+    "processed_dir": "data/processed/demo",
+    "model_dir": "models/demo",
+    "report_dir": "reports/demo",
+    "firmware_model_header": "models/demo/model.h"
+  },
+  "is_demo": true
+}

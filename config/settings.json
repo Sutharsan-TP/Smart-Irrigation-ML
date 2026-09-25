@@ -1,0 +1,38 @@
+{
+  "_comment": "REAL-DATA configuration. Values set to null MUST be filled in by the team after calibrating the sensor in your own soil. See README section 'Calibration'.",
+
+  "soil_raw_dry": null,
+  "soil_raw_wet": null,
+  "moisture_threshold_pct": null,
+
+  "soil_feature": "moisture_pct",
+  "adc_max": 1023,
+  "valid_ranges": {
+    "temperature_c": [0, 50],
+    "humidity_pct": [0, 100]
+  },
+
+  "random_seed": 42,
+  "split": {
+    "strategy": "auto",
+    "test_size": 0.25,
+    "min_sessions_for_group_split": 5
+  },
+  "cv_folds": 5,
+  "selection_metric": "f2",
+
+  "models": {
+    "logistic_regression": {"C": 1.0},
+    "decision_tree": {"max_depth": 3, "min_samples_leaf": 5},
+    "random_forest": {"n_estimators": 10, "max_depth": 3, "min_samples_leaf": 5}
+  },
+
+  "paths": {
+    "data_dir": "data/raw",
+    "processed_dir": "data/processed",
+    "model_dir": "models",
+    "report_dir": "reports",
+    "firmware_model_header": "firmware/arduino/ml_controller/model.h"
+  },
+  "is_demo": false
+}
