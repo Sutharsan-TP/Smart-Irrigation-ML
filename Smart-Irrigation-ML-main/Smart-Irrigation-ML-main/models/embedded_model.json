@@ -1,0 +1,87 @@
+{
+  "model": "decision_tree",
+  "data_kind": "REAL",
+  "feature_names": [
+    "moisture_pct",
+    "temperature_c",
+    "humidity_pct"
+  ],
+  "calibration": {
+    "soil_raw_dry": 620,
+    "soil_raw_wet": 270
+  },
+  "summary": {
+    "type": "decision_tree",
+    "tree": {
+      "leaf": false,
+      "feature": "moisture_pct",
+      "threshold": 33.0,
+      "threshold_f32": 33.0,
+      "samples": 504,
+      "left": {
+        "leaf": false,
+        "feature": "temperature_c",
+        "threshold": 22.59999942779541,
+        "threshold_f32": 22.599998474121094,
+        "samples": 199,
+        "left": {
+          "leaf": false,
+          "feature": "moisture_pct",
+          "threshold": 29.57142925262451,
+          "threshold_f32": 29.571428298950195,
+          "samples": 49,
+          "left": {
+            "leaf": true,
+            "water": true,
+            "samples": 32
+          },
+          "right": {
+            "leaf": true,
+            "water": false,
+            "samples": 17
+          }
+        },
+        "right": {
+          "leaf": true,
+          "water": true,
+          "samples": 150,
+          "collapsed": true
+        }
+      },
+      "right": {
+        "leaf": false,
+        "feature": "moisture_pct",
+        "threshold": 43.28571319580078,
+        "threshold_f32": 43.28571319580078,
+        "samples": 305,
+        "left": {
+          "leaf": false,
+          "feature": "temperature_c",
+          "threshold": 30.300000190734863,
+          "threshold_f32": 30.299999237060547,
+          "samples": 103,
+          "left": {
+            "leaf": true,
+            "water": false,
+            "samples": 62
+          },
+          "right": {
+            "leaf": true,
+            "water": true,
+            "samples": 41
+          }
+        },
+        "right": {
+          "leaf": true,
+          "water": false,
+          "samples": 202,
+          "collapsed": true
+        }
+      }
+    },
+    "decision_nodes": 5,
+    "leaves": 6,
+    "depth": 3
+  },
+  "verification": null
+}

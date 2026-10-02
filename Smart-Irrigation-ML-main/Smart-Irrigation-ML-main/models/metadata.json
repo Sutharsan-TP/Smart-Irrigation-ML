@@ -1,0 +1,265 @@
+{
+  "created_at": "2026-10-02T10:41:55",
+  "data_kind": "REAL",
+  "config": {
+    "soil_raw_dry": 620,
+    "soil_raw_wet": 270,
+    "moisture_threshold_pct": 35.0,
+    "soil_feature": "moisture_pct",
+    "adc_max": 1023,
+    "valid_ranges": {
+      "temperature_c": [
+        0,
+        50
+      ],
+      "humidity_pct": [
+        0,
+        100
+      ]
+    },
+    "random_seed": 42,
+    "split": {
+      "strategy": "auto",
+      "test_size": 0.25,
+      "min_sessions_for_group_split": 5
+    },
+    "cv_folds": 5,
+    "selection_metric": "f2",
+    "models": {
+      "logistic_regression": {
+        "C": 1.0
+      },
+      "decision_tree": {
+        "max_depth": 3,
+        "min_samples_leaf": 5
+      },
+      "random_forest": {
+        "n_estimators": 10,
+        "max_depth": 3,
+        "min_samples_leaf": 5
+      }
+    },
+    "is_demo": false,
+    "source_path": "C:\\Users\\josep\\Downloads\\Smart-Irrigation-ML-main\\Smart-Irrigation-ML-main\\config\\settings.json"
+  },
+  "feature_names": [
+    "moisture_pct",
+    "temperature_c",
+    "humidity_pct"
+  ],
+  "label_encoding": {
+    "NO_WATER": 0,
+    "WATER": 1
+  },
+  "positive_class": "WATER",
+  "data_files": {
+    "session_01.csv": "f5972fedde8d97aa",
+    "session_02.csv": "3447ebb111471781",
+    "session_03.csv": "d571f35ad0b972f2",
+    "session_04.csv": "981f8df668fac2c6",
+    "session_05.csv": "cf2a2b34ebe6f982",
+    "session_06.csv": "6838a7b357ae831f",
+    "session_07.csv": "e648436377f646a1",
+    "session_08.csv": "18b5b249a5d242e9",
+    "session_09.csv": "adc867ab8b32eeaa",
+    "session_10.csv": "30080aa85af8837f"
+  },
+  "cleaning": {
+    "rows_loaded": 720,
+    "rows_kept": 720,
+    "dropped": {},
+    "files": [
+      "session_01.csv",
+      "session_02.csv",
+      "session_03.csv",
+      "session_04.csv",
+      "session_05.csv",
+      "session_06.csv",
+      "session_07.csv",
+      "session_08.csv",
+      "session_09.csv",
+      "session_10.csv"
+    ]
+  },
+  "label_sources": {
+    "manual": 720
+  },
+  "dataset": {
+    "rows": 720,
+    "sessions": 10,
+    "class_distribution": {
+      "NO_WATER": 393,
+      "WATER": 327
+    },
+    "time_range": [
+      "2025-03-01 14:00:00",
+      "2025-03-20 02:50:00"
+    ]
+  },
+  "split": {
+    "strategy": "group",
+    "notes": [],
+    "train_rows": 504,
+    "test_rows": 216,
+    "train_sessions": [
+      "session_02",
+      "session_03",
+      "session_05",
+      "session_06",
+      "session_08",
+      "session_09",
+      "session_10"
+    ],
+    "test_sessions": [
+      "session_01",
+      "session_04",
+      "session_07"
+    ],
+    "train_class_distribution": {
+      "NO_WATER": 272,
+      "WATER": 232
+    },
+    "test_class_distribution": {
+      "NO_WATER": 121,
+      "WATER": 95
+    }
+  },
+  "cross_validation": {
+    "method": "5-fold StratifiedGroupKFold (whole sessions held out per fold)",
+    "results": {
+      "soil_threshold_learned": {
+        "folds": 5,
+        "accuracy": {
+          "mean": 0.763888888888889,
+          "std": 0.10053867261585475
+        },
+        "precision": {
+          "mean": 0.6153026265702322,
+          "std": 0.4119073142612943
+        },
+        "recall": {
+          "mean": 0.6009508389288378,
+          "std": 0.3043730415302223
+        },
+        "f1": {
+          "mean": 0.5673110624315443,
+          "std": 0.3322999037491258
+        },
+        "f2": {
+          "mean": 0.5686668381165535,
+          "std": 0.29662379452797744
+        },
+        "fn_total": 72
+      },
+      "logistic_regression": {
+        "folds": 5,
+        "accuracy": {
+          "mean": 0.898611111111111,
+          "std": 0.04063538566202166
+        },
+        "precision": {
+          "mean": 0.8232804232804234,
+          "std": 0.19258997614363196
+        },
+        "recall": {
+          "mean": 0.8716346281039838,
+          "std": 0.0956572003319468
+        },
+        "f1": {
+          "mean": 0.8361455916443129,
+          "std": 0.1295266709230299
+        },
+        "f2": {
+          "mean": 0.8540571269998496,
+          "std": 0.10042598093000753
+        },
+        "fn_total": 28
+      },
+      "decision_tree": {
+        "folds": 5,
+        "accuracy": {
+          "mean": 0.7861111111111111,
+          "std": 0.10779782173295696
+        },
+        "precision": {
+          "mean": 0.6268033444403307,
+          "std": 0.349499457932297
+        },
+        "recall": {
+          "mean": 0.5996364906265378,
+          "std": 0.30520544079024253
+        },
+        "f1": {
+          "mean": 0.6093262113700536,
+          "std": 0.3214083497649428
+        },
+        "f2": {
+          "mean": 0.6026391183253927,
+          "std": 0.31031335418469247
+        },
+        "fn_total": 66
+      },
+      "random_forest": {
+        "folds": 5,
+        "accuracy": {
+          "mean": 0.7638888888888888,
+          "std": 0.09541980020732035
+        },
+        "precision": {
+          "mean": 0.6671143913766864,
+          "std": 0.3132106779505607
+        },
+        "recall": {
+          "mean": 0.622288757461485,
+          "std": 0.26386346475961514
+        },
+        "f1": {
+          "mean": 0.6016408529741863,
+          "std": 0.2852152303995656
+        },
+        "f2": {
+          "mean": 0.5992074518996114,
+          "std": 0.2625386269962532
+        },
+        "fn_total": 74
+      },
+      "threshold_baseline": {
+        "folds": 5,
+        "accuracy": {
+          "mean": 0.8319444444444445,
+          "std": 0.07301910793386061
+        },
+        "precision": {
+          "mean": 0.8144573622834491,
+          "std": 0.23858903662980716
+        },
+        "recall": {
+          "mean": 0.6951678660647258,
+          "std": 0.2768968859951838
+        },
+        "f1": {
+          "mean": 0.6796416238871481,
+          "std": 0.26162995161243935
+        },
+        "f2": {
+          "mean": 0.6805296140026913,
+          "std": 0.27025548478672695
+        },
+        "fn_total": 50
+      }
+    }
+  },
+  "baseline_note": null,
+  "selection": {
+    "metric": "f2",
+    "chosen": "logistic_regression",
+    "reason": "Highest mean CV F2 (0.854)"
+  },
+  "warnings": [],
+  "versions": {
+    "python": "3.14.6",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  }
+}
